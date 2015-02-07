@@ -12,6 +12,9 @@ var Hiragana =[
 ];
 var text = "";
 var result = JSON.parse(localStorage.getItem('result'));
+if(!result){
+	localStorage.setItem('result',{});
+}
 var getOne = function(){
 	$.each(Hiragana, function(i, item) {
 		if(result[item]){
