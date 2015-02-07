@@ -11,10 +11,10 @@ var Hiragana =[
 	'わ','い','う','え','を',
 ];
 var text = "";
-var result = JSON.parse(localStorage.getItem('result'));
-if(!result){
-	localStorage.setItem('result',{});
+if(!localStorage.getItem('result')){
+	localStorage.setItem('result',"{}");
 }
+var result = JSON.parse(localStorage.getItem('result'));
 var getOne = function(){
 	$.each(Hiragana, function(i, item) {
 		if(result[item]){
