@@ -10,6 +10,24 @@ var Hiragana =[
 	'ら','り','る','れ','ろ',
 	'わ','い','う','え','を',
 ];
+$.ajax({
+	url: '../data/basic.json',
+	type: 'jsonp',
+	dataType: 'json',
+	success: function(data){
+		console.log(data);
+	}
+})
+.done(function() {
+	console.log("success");
+})
+.fail(function() {
+	console.log("error");
+})
+.always(function() {
+	console.log("complete");
+});
+
 var text = "";
 if(!localStorage.getItem('result')){
 	localStorage.setItem('result',"{}");
