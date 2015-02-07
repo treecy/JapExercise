@@ -10,11 +10,29 @@ var Hiragana =[
 	'ら','り','る','れ','ろ',
 	'わ','い','う','え','を',
 ];
+$.ajax({
+	url: '../data/basic.json',
+	type: 'jsonp',
+	dataType: 'json',
+	success: function(data){
+		console.log(data);
+	}
+})
+.done(function() {
+	console.log("success");
+})
+.fail(function() {
+	console.log("error");
+})
+.always(function() {
+	console.log("complete");
+});
+
 var text = "";
-var result = JSON.parse(localStorage.getItem('result'));
-if(!result){
-	localStorage.setItem('result',{});
+if(!localStorage.getItem('result')){
+	localStorage.setItem('result',"{}");
 }
+var result = JSON.parse(localStorage.getItem('result'));
 var getOne = function(){
 	$.each(Hiragana, function(i, item) {
 		if(result[item]){
